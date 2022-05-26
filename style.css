@@ -222,6 +222,7 @@ section{
     margin-top: 40px;
 }
 .product .content .box{
+    /* height: 20px; */
     width: 340px;
     margin: 20px;
     border: 15px solid #fff;

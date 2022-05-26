@@ -32,7 +32,7 @@
             */
             echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"profile.php\" onclick=\"toggleMenu();\">Account details</a><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
         } else {
-            echo "<li><a href=\"login.html\" onclick=\"toggleMenu();\">Log in</a></li>";
+            echo "<li><a href=\"login.php\" onclick=\"toggleMenu();\">Log in</a></li>";
         }
         ?>
         
