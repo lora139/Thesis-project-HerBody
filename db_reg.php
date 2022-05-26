@@ -10,7 +10,7 @@ $password = hash("sha256", $password);
 
 $create_datetime = date("Y-m-d H:i:s");
 
-$sql = "INSERT INTO `user`(id, username, email, password, create_datetime) VALUES (0,'$username', '$email', '$password', '$create_datetime')";
+$sql = "INSERT INTO `user`(id, username, email, password, create_datetime, is_admin) VALUES (0,'$username', '$email', '$password', '$create_datetime', 0)";
 
 $rs=mysqli_query($con, $sql);
 

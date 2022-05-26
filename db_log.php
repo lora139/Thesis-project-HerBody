@@ -12,6 +12,8 @@ $get_user = "SELECT * FROM `user` WHERE username = '$username' AND password = '$
 $res = mysqli_query($con, $get_user);
 $result = mysqli_fetch_array($res);
 
+echo $result;
+
 if($result) {
 	if(isset($_POST["remember"]) && $_POST["remember"] == 1)
 	    setcookie("login", "1", time() + 60);// second on page time 
