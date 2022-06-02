@@ -124,7 +124,7 @@ header .navigation .dropdown {
   }
   
   /* Change color of dropdown links on hover */
-  header .navigation .dropdown-content a:hover {background-color: #555;}
+  header .navigation .dropdown-content a:hover {opacity: 2;}
   
   /* Show the dropdown menu on hover */
   header .navigation .dropdown:hover .dropdown-content {display: block;}
@@ -205,7 +205,7 @@ section{
 }
 
 #product{
-    margin-bottom: 8%;
+    margin-bottom: 15%;
 }
 .product{
     width: 95vw;
@@ -222,7 +222,7 @@ section{
     margin-top: 40px;
 }
 .product .content .box{
-    /* height: 20px; */
+    height: 580px; 
     width: 340px;
     margin: 20px;
     border: 15px solid #fff;
@@ -243,6 +243,30 @@ section{
 }
 .product .content .box .text{
     padding: 15px 0 5px;
+    text-align: center;
+}
+.product .content .box .text .price{
+    margin-top: 5%;
+    color: grey;
+    font-size: 22px;      
+}
+.product .content .box .text .information {
+    margin-top: 5%;
+}
+.product .content .box .text button {
+    margin-top: 15%;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #bbca69;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+.product .content .box .text button:hover {
+    opacity: 0.7;
 }
 .product .content .box .text h3{
     font-weight: 400;

@@ -89,7 +89,13 @@
             </div>
             <div class="text">
                 <h3>Lavander Soaps</h3>
+                <p class="price">$19.99</p>
+                <div class="information">
+                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                </div>
+                <p><button>Learn more</button></p>
             </div>
+            
         </div>
 
         <div class="box">
@@ -98,6 +104,11 @@
             </div>
             <div class="text">
                 <h3>Honey Soaps</h3>
+                <p class="price">$19.99</p>
+                <div class="information">
+                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                </div>
+                <p><button>Learn more</button></p>
             </div>
         </div>
 
@@ -107,6 +118,11 @@
             </div>
             <div class="text">
                 <h3>Fannel Soaps</h3>
+                <p class="price">$19.99</p>
+                <div class="information">
+                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                </div>
+                <p><button>Learn more</button></p>
             </div>
         </div>
     <!--
@@ -130,7 +146,7 @@
     <div class="title">
         <h2 class="titleText"><span>C</span>ontact Us</h2>
     </div>
-    <form action="https://formsubmit.co/loloio.dim@gmail.com" method="post">
+    <!-- <form action="https://formsubmit.co/loloio.dim@gmail.com" method="post"> -->
     <div class="contactForm">
         <h3>Send Message</h3>
         <div class="inputBox">
