@@ -1,3 +1,5 @@
 <?php
-$con = mysqli_connect('localhost:3306','root','3Bzye017818*','loginsystem');
+/* Global variables */
+
+$con = mysqli_connect('localhost:3306','root','3Bzye017818*','loginsystem'); /* SQL connection */
 ?>

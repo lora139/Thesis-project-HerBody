@@ -1,52 +1,58 @@
 <?php
-
-//require "error.php";
+/* User authentication routines */
 
 require "global.php";
 
-//$con = mysqli_connect('localhost:3306','root','3Bzye017818*','loginsystem');
-//$email_error = "ERROR STRING LOL";
-
+/* Add a new user to database. */
 function register($username, $email, $password) {
     global $con;
-    $create_datetime = date("Y-m-d H:i:s");
+    
+    $create_datetime = date("Y-m-d H:i:s"); /* time of creation */
+    /* SQL query to insert data */
     $sql = "INSERT INTO `user`(username, email, password, create_datetime, is_admin) VALUES ('$username', '$email', '$password', '$create_datetime', 0)";
-    $rs=mysqli_query($con, $sql);
+    $rs=mysqli_query($con, $sql); /* execute query */
 
+    /* if successful, redirect to login page */
     if($rs) {
 	    header("Location: login.php");
     }
 }
-
+/* Authenticate an existing user. */
 function login($username, $password) {
     global $con;
 
-    // SELECT * FROM `user` WHERE username = $username AND password=$password;
+    /* SQL query to search for user with given username and password */
     $sql = "SELECT * FROM `user` WHERE username = '$username' AND password = '$password'";
 
-    $res = mysqli_query($con, $sql);
+    $res = mysqli_query($con, $sql); /* execute query */
 
+    /* if there are results enable login cookie */
     if(mysqli_num_rows($res) > 0) {
+        /* if user wants to be remembered between visits set this cookie */
 	    if(isset($_POST["remember"]) && $_POST["remember"] == 1)
             setcookie("login", "1", time() + 60);// second on page time 
         else setcookie("login", "1");
-        //echo $_COOKIE["login"];
+        /* redirect to main page */
         header("Location: index.php");
-    } else header("Location: login.php");
+    } else header("Location: login.php"); /* if no users are found redirect to login page again */
 }
 
-/* always runs */
+/* automatically start login or register procedures based on form fields */
 
+/* if the file is just being included in another stop here */
 if ($_SERVER["REQUEST_METHOD"] != "POST") exit();
 
+/* get username and password from form fields */
 $username = $_POST["username"]; // add isset
-$password = hash("sha256", $_POST["password"]);
+$password = hash("sha256", $_POST["password"]); /* hash the password */
 
+/* are we logging in or registering? */
 switch ($_POST["auth_type"]) {
     case "login":
         login($username, $password);
         break;
     case "register":
+        /* get email here because login forms don't have an email field */
         $email = $_POST["email"];
         register($username, $email, $password);
         break;

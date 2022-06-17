@@ -120,8 +120,8 @@
             
         </div>
         <center>
-        <button class="btn" onclick="slider_shift(-1)">&#10094;</button>
-        <button class="btn" onclick="slider_shift(1)">&#10095;</button>
+            <button class="btn" onclick="slider_shift(-1)">&#10094;</button>
+            <button class="btn" onclick="slider_shift(1)">&#10095;</button>
         </center>
     </div>
 
