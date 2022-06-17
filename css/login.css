@@ -6,7 +6,7 @@
 .hero{
     height: 100%;
     width: 100%;
-    background: url(img/Fennel_2.jpg);
+    background: url(/img/Fennel_2.jpg);
     /* opacity: 0.7; */
     background-position: center;
     background-size: cover;

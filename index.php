@@ -1,3 +1,4 @@
+<!--JUST FOR FLEX: I AM LEVEL C1 IN ENGLISH-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HERBODY</title>
-    <link rel="stylesheet" href="style.css"> <!-- adding css file -->
+    <link rel="stylesheet" href="/css/style.css"> <!-- adding css file -->
    
+  <!-- SWIPER CSS   -->
+  <link rel= "stylesheet" href="">
 </head>
 <body>
 <header>
@@ -20,6 +23,7 @@
         <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
         
         <?php
+        // echo $_COOKIE['login'];
         if (isset($_COOKIE["login"]) && $_COOKIE["login"] == "1") {
             // dropdown menu
             /*<div class="dropdown">
@@ -79,67 +83,49 @@
 
 <section class="product" id="product">
     <div class="title">
-        <h2 class="titleText">Our <span>P</span>roducts</h2>
+        <h2 class="titleText"><span>P</span>roducts</h2>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
     </div>
-    <div class="content">
-        <div class="box">
-            <div class="imgBox">
-                <img src="img/Fennel_3.jpg">
-            </div>
-            <div class="text">
-                <h3>Lavander Soaps</h3>
-                <p class="price">$19.99</p>
-                <div class="information">
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                </div>
-                <p><button>Learn more</button></p>
-            </div>
+    <div class="slider">
+        <div class="content">
+            <?php
+            require "global.php";
+            function get_products() {
+                global $con;
+                $prod = [];
+                $n = 0;
+                $sql = "SELECT * FROM `products` ORDER BY id";                
+                $res = mysqli_query($con, $sql);
+                if ($res) {
+                    $n = mysqli_num_rows($res);
+                    while ($row = mysqli_fetch_row($res)) {
+                        $prod[] = $row;
+                    }
+                    mysqli_free_result($res);
+                } else echo "BRUH";
+                
+                for ($i = 0; $i < $n; $i++) {
+                    if ($i == $n - 1) {
+                        echo "<div class='box'><div class='imgBox'><img src='".$prod[$i][1]."'></div><div class='text'><h3>".$prod[$i][2]."</h3><p class='price'>".$prod[$i][4]."$ ".$prod[$i][3]."</p><div class='information'><p>".$prod[$i][5]."</p></div><p><button>Learn more</button></p></div></div>";    
+                        echo "</div>";
+                        break;
+                    }
+                    if ($i % 3 == 0 && $i != 0) echo "</div>";
+                    if ($i % 3 == 0) echo "<div class='triple-box'>";
+                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$i][1]."'></div><div class='text'><h3>".$prod[$i][2]."</h3><p class='price'>".$prod[$i][4]."$ ".$prod[$i][3]."</p><div class='information'><p>".$prod[$i][5]."</p></div><p><button>Learn more</button></p></div></div>";    
+                }
+            }
+            get_products();
+            ?>
             
         </div>
-
-        <div class="box">
-            <div class="imgBox">
-                <img src="img/Fennel_3.jpg">
-            </div>
-            <div class="text">
-                <h3>Honey Soaps</h3>
-                <p class="price">$19.99</p>
-                <div class="information">
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                </div>
-                <p><button>Learn more</button></p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="imgBox">
-                <img src="img/Fennel_3.jpg">
-            </div>
-            <div class="text">
-                <h3>Fannel Soaps</h3>
-                <p class="price">$19.99</p>
-                <div class="information">
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                </div>
-                <p><button>Learn more</button></p>
-            </div>
-        </div>
-    <!--
-        <div class="box">
-            <div class="imgBox">
-                <img src="img/Fennel_3.jpg">
-            </div>
-            <div class="text">
-                <h3>Actived cardon Soaps</h3>
-            </div>
-        </div>
-    -->
+        <center>
+        <button class="btn" onclick="slider_shift(-1)">&#10094;</button>
+        <button class="btn" onclick="slider_shift(1)">&#10095;</button>
+        </center>
     </div>
 
-    <div class="title">
-        <a href="#" class="btn">View All</a>
-    </div>
+   
 </section>
 
 <section class="contact" id="contact">
@@ -172,7 +158,7 @@
     <p>Copyright © 2022 <a href="#">Herbody</a>. All Right Reserved</p>
 </div>
 
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 </body>
 
 </html>

@@ -26,10 +26,11 @@ function login($username, $password) {
 
     $res = mysqli_query($con, $sql);
 
-    if(mysqli_num_rows($res)) {
+    if(mysqli_num_rows($res) > 0) {
 	    if(isset($_POST["remember"]) && $_POST["remember"] == 1)
             setcookie("login", "1", time() + 60);// second on page time 
         else setcookie("login", "1");
+        //echo $_COOKIE["login"];
         header("Location: index.php");
     } else header("Location: login.php");
 }

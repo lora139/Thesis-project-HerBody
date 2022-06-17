@@ -1,4 +1,3 @@
-Plan:
 
 -> A navigation bar
 -> A slide show
