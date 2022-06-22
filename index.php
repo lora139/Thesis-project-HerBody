@@ -23,7 +23,7 @@
         <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
         
         <?php
-        // echo $_COOKIE['login'];
+        /* if we are logged in instead of displaying a link to the login page, display a dropdown menu for the client */
         if (isset($_COOKIE["login"]) && $_COOKIE["login"] == "1") {
             // dropdown menu
             /*<div class="dropdown">
@@ -49,7 +49,7 @@
         <a href="#product" class="btn">Products</a>
     </div>
 </section>
-
+<!-- <div class ="parallax"></div> -->
 <section class="about" id="about">
     <div class="row">
         <div class="col50">
@@ -63,6 +63,12 @@
             text of the printing and typesetting industry. Lorem Ipsum has been
             the industry's standard dummy text ever since the 1500s, when an
             unknown printer took a galley of type and scrambled it to make a 
+            type specimen book.Lorem Ipsum is simply dummy
+            text of the printing and typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the 1500s, when an
+            unknown printer took a galley of type and scrambled it to make a 
+            type specimen book.
+            inter took a galley of type and scrambled it to make a 
             type specimen book.Lorem Ipsum is simply dummy
             text of the printing and typesetting industry. Lorem Ipsum has been
             the industry's standard dummy text ever since the 1500s, when an
@@ -90,29 +96,45 @@
         <div class="content">
             <?php
             require "global.php";
+            /* get products */
             function get_products() {
                 global $con;
+                /* create an array*/
                 $prod = [];
                 $n = 0;
-                $sql = "SELECT * FROM `products` ORDER BY id";                
+                /* select all the products which we import form the DB */
+                $sql = "SELECT * FROM `products` ORDER BY id";
+                /* return the result */        
                 $res = mysqli_query($con, $sql);
+                /* if it is successful, it puts all the product into an array*/
                 if ($res) {
                     $n = mysqli_num_rows($res);
                     while ($row = mysqli_fetch_row($res)) {
                         $prod[] = $row;
                     }
+                    /* free result from memory */
                     mysqli_free_result($res);
-                } else echo "BRUH";
-                
-                for ($i = 0; $i < $n; $i++) {
+                } else return;  //returns nothing
+
+                /*generate html for products page*/
+                for ($i = 0; $i < $n; ++$i) {
+                    /* special case when we reach the final product card */
                     if ($i == $n - 1) {
                         echo "<div class='box'><div class='imgBox'><img src='".$prod[$i][1]."'></div><div class='text'><h3>".$prod[$i][2]."</h3><p class='price'>".$prod[$i][4]."$ ".$prod[$i][3]."</p><div class='information'><p>".$prod[$i][5]."</p></div><p><button>Learn more</button></p></div></div>";    
                         echo "</div>";
                         break;
                     }
+                    /* close a div on each third product card, except on the first one */
                     if ($i % 3 == 0 && $i != 0) echo "</div>";
+                    /* start a div for the next three product cards */
                     if ($i % 3 == 0) echo "<div class='triple-box'>";
-                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$i][1]."'></div><div class='text'><h3>".$prod[$i][2]."</h3><p class='price'>".$prod[$i][4]."$ ".$prod[$i][3]."</p><div class='information'><p>".$prod[$i][5]."</p></div><p><button>Learn more</button></p></div></div>";    
+                    /* write html code for product card */
+                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$i][1]."'></div><div class='text'><h3>".$prod[$i][2]."</h3><p class='price'>".$prod[$i][4]."$ ".$prod[$i][3]."</p><div class='information'><p>".$prod[$i][5]."</p></div>";
+                    if (isset($_COOKIE["login"]) && $_COOKIE["login"] == "1") {
+                        echo "<p><button onclick=\"location.href='/product.php?id=".$prod[$i][0]."';\">Learn more</button></p></div></div>";
+                    } else {
+                        echo "<p><button onclick=\"location.href='/login.php';\">Learn more</button></p></div></div>";
+                    }
                 }
             }
             get_products();
@@ -132,19 +154,19 @@
     <div class="title">
         <h2 class="titleText"><span>C</span>ontact Us</h2>
     </div>
-    <!-- <form action="https://formsubmit.co/loloio.dim@gmail.com" method="post"> -->
+    <form action="https://formsubmit.co/loloio.dim@gmail.com" method="post">
     <div class="contactForm">
         <h3>Send Message</h3>
         <div class="inputBox">
-            <input type="text" placeholder="Name">
+            <input name="name" type="text" placeholder="Name">
         </div>
 
         <div class="inputBox">
-            <input type="text" placeholder="Your Email">
+            <input name="email" type="text" placeholder="Your Email">
         </div>
 
         <div class="inputBox">
-            <textarea placeholder="Message"></textarea>
+            <textarea name="message" placeholder="Message"></textarea>
         </div>
 
         <div class="inputBox">

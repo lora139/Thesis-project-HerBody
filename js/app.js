@@ -10,6 +10,8 @@ function toggleMenu(){
     navigation.classList.toggle('active');
 }
 
+/* black magic slider thing :> */
+
 var slider_offset = 1;
 slider_refresh(slider_offset);
 

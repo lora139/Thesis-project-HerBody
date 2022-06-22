@@ -16,6 +16,9 @@ function register($username, $email, $password) {
     if($rs) {
 	    header("Location: login.php");
     }
+    else{
+        header("Location: register.php");
+    }
 }
 /* Authenticate an existing user. */
 function login($username, $password) {
@@ -44,6 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") exit();
 
 /* get username and password from form fields */
 $username = $_POST["username"]; // add isset
+
+if (!isset($username)) exit(); //if the userfield is empty, it will exit
+if(!isset($_POST["password"])) exit(); //if the password field is empty, it will exit
+
 $password = hash("sha256", $_POST["password"]); /* hash the password */
 
 /* are we logging in or registering? */
@@ -54,6 +61,7 @@ switch ($_POST["auth_type"]) {
     case "register":
         /* get email here because login forms don't have an email field */
         $email = $_POST["email"];
+        if(!isset( $_POST["email"])) exit(); //if the email field is empty, it will exit
         register($username, $email, $password);
         break;
     default: exit();

@@ -1,3 +1,5 @@
+/* redirects */
+
 function login_ref(){
     document.location.href="/login.php";
 }

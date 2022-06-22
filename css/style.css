@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -19,6 +18,10 @@ p{
     justify-content: center;
     align-items: center;
     background: url(/img/Fennel_2.jpg);
+   
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 .banner .content{ /*that is for all texts in class banner/ class content*/
@@ -45,9 +48,12 @@ p{
     text-decoration: none;
     letter-spacing: 2px;
     transition: 0.5s; /*animation*/
+    border-radius: 12px;
+    border: none;
 }
-.btn :hover{
+.btn:hover{
     letter-spacing: 6px;
+    background-color: #555;
 /*it's not working*/
 }
 header{
@@ -131,7 +137,6 @@ header .navigation .dropdown {
   header .navigation .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
- 
 
 section{
     padding: 100px;
@@ -150,7 +155,7 @@ section{
 
 }
 .row .col50{
-    top: 90px;
+    top: 60px;
     position: relative;
     width: 44%;
 }
@@ -190,11 +195,6 @@ section{
     left: 0;
     width: 100%;
     height: 100%;
-   /* top: -70px;
-    left: 100px;
-    width: 5000px;
-    height: 350px;
-    */
     object-fit: cover;
 }
 .title{
@@ -204,13 +204,14 @@ section{
     align-items: center;
     flex-direction: column;
 }
-
 #product{
     margin-bottom: 15%;
+    
 }
 .product{
     width: 95vw;
     height: 100vh;
+    top: 150px;
 }
 .product .title p{
     font-size: 1.2em;
