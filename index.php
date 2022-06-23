@@ -185,6 +185,11 @@
     </form>
 </section>
 
+<footer>
+    <p>Author: Lora and Marin<br>
+    <a>loloio.dim@gmail.com and m.l.bizov@gmail.com</a></p>
+</footer>
+
 <div class="copyrightText">
     <p>Copyright © 2022 <a href="#">Herbody</a>. All Right Reserved</p>
 </div>

@@ -353,35 +353,14 @@ section{
     font-weight: 700;
     text-decoration: none;
 }
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: DarkSalmon;
+    color: white;
+ }
 
-/* profile page */
-/* .profile{
-    background-color: #bbca69;
-}  */
-/* .profile .prof_box{
-    margin-top: 7%;
-    height: 580px; 
-    width: 340px;
-    border: 15px solid #f1d397;
-    background-color: #f1d397;
-    box-shadow: 0 50px 50px rgba(0,0,0,0.2);
-}
-.profile .prof_box .prof_image{
-    position: relative;
-    width: 100%;
-    height: 300px;
-}
-.profile .prof_box .prof_image img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} 
-.details{
-    margin-top:30%;
-} */
+/* media */
 
 @media (max-width: 991px){
     
