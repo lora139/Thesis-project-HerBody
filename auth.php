@@ -14,10 +14,10 @@ function register($username, $email, $password) {
 
     /* if successful, redirect to login page */
     if($rs) {
-	    header("Location: login.php");
-    }
-    else{
-        header("Location: register.php");
+	//     header("Location: login.php");
+    // }
+    // else{
+        header("Location: login.php");
     }
 }
 /* Authenticate an existing user. */
@@ -33,8 +33,8 @@ function login($username, $password) {
     if(mysqli_num_rows($res) > 0) {
         /* if user wants to be remembered between visits set this cookie */
 	    if(isset($_POST["remember"]) && $_POST["remember"] == 1)
-            setcookie("login", "1", time() + 60);// second on page time 
-        else setcookie("login", "1");
+            setcookie("login", $username, time() + 60);// second on page time 
+        else setcookie("login", $username);
         /* redirect to main page */
         header("Location: index.php");
     } else header("Location: login.php"); /* if no users are found redirect to login page again */

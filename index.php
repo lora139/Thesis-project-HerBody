@@ -8,8 +8,6 @@
     <title>HERBODY</title>
     <link rel="stylesheet" href="/css/style.css"> <!-- adding css file -->
    
-  <!-- SWIPER CSS   -->
-  <link rel= "stylesheet" href="">
 </head>
 <body>
 <header>
@@ -23,8 +21,11 @@
         <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
         
         <?php
+        require "global.php";
+
+        global $con;
         /* if we are logged in instead of displaying a link to the login page, display a dropdown menu for the client */
-        if (isset($_COOKIE["login"]) && $_COOKIE["login"] == "1") {
+        if (isset($_COOKIE["login"])) {
             // dropdown menu
             /*<div class="dropdown">
                 <button class="dropbtn">Profile</button>
@@ -34,7 +35,15 @@
                 </div>
             </div>
             */
-            echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"profile.php\" onclick=\"toggleMenu();\">Account details</a><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
+            $sql = "select is_admin from `user` where username = '". $_COOKIE["login"] . "'";
+            $res = mysqli_query($con, $sql);
+            $row = mysqli_fetch_row($res);
+            
+            if($row[0] == 1){
+               echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"profile.php\" onclick=\"toggleMenu();\">Client accounts</a><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
+            }else{
+               echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
+            }
         } else {
             echo "<li><a href=\"login.php\" onclick=\"toggleMenu();\">Log in</a></li>";
         }
