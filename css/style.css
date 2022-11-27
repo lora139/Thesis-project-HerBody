@@ -143,28 +143,28 @@ section{
 }
 
 .about {
-    height: 87vh;
-    width: 95vw;
+    /* height: 87vh; */
+    width: 100%;
+    /* background: url(/img/design.jpg); */
 }
-
 .row{
     position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
-
 }
 .row .col50{
     top: 60px;
     position: relative;
     width: 44%;
+    
 }
 .row .col50 p{
     font-size: 1.2em;
  }
 
 .titleText{
-    position: inherit;
+    /* position: inherit; */
     color:#111;
     font-size: 2em;
     font-weight: 300;
@@ -205,13 +205,11 @@ section{
     flex-direction: column;
 }
 #product{
-    margin-bottom: 15%;
+    width: 100%;
     
-}
-.product{
-    width: 95vw;
-    height: 100vh;
-    top: 150px;
+    margin-bottom: 20%;
+    /* margin-top: 100px; */
+    /* background: url(/img/design.jpg); */
 }
 .product .title p{
     font-size: 1.2em;
@@ -236,10 +234,11 @@ section{
     /* margin-top:0px; */
 }
 .product .content .box{
-    height: 580px; 
+    height: 680px; 
     width: 340px;
     margin: 20px;
     border: 15px solid #fff;
+    background-color: #fff;
     box-shadow: 0 5px 35px rgba(0,0,0,0.08);
 }
 .product .content .box .imgBox{
@@ -265,10 +264,12 @@ section{
     font-size: 22px;      
 }
 .product .content .box .text .information {
+    height: 90px;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 .product .content .box .text button {
-    margin-top: 15%;
+    margin-top: 1%;
     border: none;
     outline: 0;
     padding: 12px;
@@ -288,6 +289,7 @@ section{
 }
 
 .contact{
+    margin-top: -20%;
     background: url(/img/solid1.png);
     background-size: cover;
 }
