@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     // if there is no id we insert
     if($update==null){
-        $sql = "insert into `products`(`img`,`name`,`price`,`currency`,`desc`) value ('$img', '$name', '$price', '$currency', '$desc');";
+        $sql = "insert into `products` (`img`,`name`,`price`,`currency`,`desc`) value ('$img', '$name', '$price', '$currency', '$desc');";
         $res = mysqli_query($con, $sql);
     }else{ // if there is an id we update
         $sql = "update `products` set `img`='$img', `name`='$name', `price`='$price', `currency`='$currency', `desc`='$desc' where `id`='$update';";

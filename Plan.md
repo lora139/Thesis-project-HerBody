@@ -1,9 +1,9 @@
 
--> A navigation bar
--> A slide show
--> A header
--> Some sections and articles
--> A footer
+-> A navigation bar /
+-> A slide show/
+-> A header/
+-> Some sections and articles/
+-> A footer/
 
 The <section> element can be used to define a part of a website with related content.
 

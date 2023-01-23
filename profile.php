@@ -16,10 +16,13 @@
                     function profile() {
                         global $con;
 
-                        $sql = "SELECT username, email, `password`, create_datetime FROM `user`";
+                        $sql = "SELECT o.orderid, o.clientname, o.email, GROUP_CONCAT(p.`name`,':',c.qty SEPARATOR ', ') AS products FROM `order` o 
+                        JOIN cart_order c ON c.oid = o.orderid
+                        JOIN products p ON c.pid = p.id
+                        group by o.orderid";
                         $res = mysqli_query($con, $sql);
                         if ($res) {
-                            echo "<table><tr><th>Username</th><th>Email</th><th>Password</th><th>Date of a creation</th></tr>";
+                            echo "<table><tr><th>Users id</th><th>Clients name</th><th>Email</th><th>Ordered products</th></tr>";
                             while ($row = mysqli_fetch_row($res)) {
                                 echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>";
                             }

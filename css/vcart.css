@@ -1,0 +1,43 @@
+.vtriple-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.vcontent {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    /* margin-top:0px; */
+}
+.vbox{
+    height: 180px; 
+    width: 640px;
+    margin: -10px;
+    border: 15px solid #fff;
+    background-color: #fff;
+    box-shadow: 0 5px 35px rgba(0,0,0,0.08);
+}
+.vcontent .vbox .vimgBox{
+    position: relative;
+    width: 200px;
+    height: 100%;
+}
+.vcontent .vbox .vimgBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.vcontent .vbox .vtext p{
+    padding: 15px 15px 15px;
+    text-align: center;
+    margin-top: -150px;
+    /* margin-top: 5%; */
+    color: grey;
+    font-size: 22px; 
+}

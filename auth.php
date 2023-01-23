@@ -3,6 +3,7 @@
 
 require "global.php";
 
+
 /* Add a new user to database. */
 function register($username, $email, $password) {
     global $con;
@@ -14,9 +15,6 @@ function register($username, $email, $password) {
 
     /* if successful, redirect to login page */
     if($rs) {
-	//     header("Location: login.php");
-    // }
-    // else{
         header("Location: login.php");
     }
 }
@@ -33,7 +31,7 @@ function login($username, $password) {
     if(mysqli_num_rows($res) > 0) {
         /* if user wants to be remembered between visits set this cookie */
 	    if(isset($_POST["remember"]) && $_POST["remember"] == 1)
-            setcookie("login", $username, time() + 60);// second on page time 
+            setcookie("login", $username, time() + 60);// second on page time
         else setcookie("login", $username);
         /* redirect to main page */
         header("Location: index.php");
