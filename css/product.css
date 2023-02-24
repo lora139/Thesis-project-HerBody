@@ -3,7 +3,6 @@
     padding: 0;
     font-family: sans-serif;
 }
-
 .hero{
     height: 100%;
     width: 100%;
@@ -31,13 +30,8 @@
     border-radius: 50px;
 }
 .toggle-btn{
-    /* padding: 10px 30px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none; */
    text-align: center;
-   padding: 10px 30px;
+   padding: 10px 0;
    position: absolute;
    left: 25%;
 }
@@ -53,7 +47,8 @@
 }
 .input-group{
     top: 180px;
-    position: absolute;
+    margin: 12%;
+    /* position: absolute; */
     width: 280px;
     transition: 0.5s;
 }
@@ -106,8 +101,4 @@
 }
 #register{
     left: 450px;
-}
-.error-m{
-    color:red; 
-    text-align: center;
 }

@@ -27,3 +27,7 @@ function slider_refresh(n) {
     for (i = 0; i < x.length; ++i) x[i].style.display = "none";
     x[slider_offset - 1].style.display = "flex";
 }
+
+function back(){
+    document.location.href="/index.php";
+}

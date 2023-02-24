@@ -32,11 +32,11 @@
                 <li><a href="#about" onclick="toggleMenu();">About</a></li> <!--About полето -->
                 <li><a href="#product" onclick="toggleMenu();">Products</a></li><!--Products полето-->
                 <li><a href="#contact" onclick="toggleMenu();">Contact</a></li><!--Contact полето-->
-                    
+        
                     <?php
                         require "global.php";
-
                         global $con;
+
                         /* if we are logged in instead of displaying a link to the login page, display a dropdown menu for the client */
                         if (isset($_COOKIE["login"])) {
                                 // dropdown menu
@@ -56,13 +56,24 @@
                                 echo "<li><a href=\"/newprod.php\">Add product</a></li>";
                                 echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"profile.php\" onclick=\"toggleMenu();\">Client accounts</a><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
                             }else{
-                                echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
+                                echo "<div class=\"dropdown\"><li><a href=\"viewcart.php\" onclick=\"toggleMenu();\" class=\"dropbtn\">View cart</a></li></div>";
+                                echo "<div class=\"dropdown\"><li><a href=\"logout.php\" onclick=\"toggleMenu();\" class=\"dropbtn\">Logout</a></li></div></ul>";
+                                echo"<div class='search-container'><form method='post' action='search.php'><input  class='search' type='text' name='search' placeholder='Search products...'><input class='search_btn' type='submit' value='Search'></form></div>";
                             }
                         } else {
-                            echo "<li><a href=\"login.php\" onclick=\"toggleMenu();\">Log in</a></li>";
+                            echo "<li><a href=\"login.php\" onclick=\"toggleMenu();\">Log in</a></li></ul>";
+                            echo"<div class='search-container'><form method='post' action='search.php'><input  class='search' type='text' name='search' placeholder='  Search products...'><input class='search_btn' type='submit' value='Search'></form></div>";
                         }
                     ?>
-            </ul>
+            
+                   
+                <!-- <div class="search-container">
+                <form method="post" action="search.php">
+                    <input  class="search" type="text" name="search" placeholder="  Search products...">
+                    <input class="search_btn" type="submit" value="Search">
+                </form>
+            </div> -->
+            
         </header>
 
         <section class="banner" id="banner">
@@ -147,28 +158,29 @@
                                 echo "<div class='triple-box'>";
                                 for ($j = 3 * $i; $j < 3 * ($i + 1); ++$j) {
                                     if ($j > $n - 1) break;
-                                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$j][1]."'></div><div class='text'><h3>".$prod[$j][2]."</h3><p class='price'>".$prod[$j][4]."$ ".$prod[$j][3]."</p><div class='information'><p>".$prod[$j][5]."</p></div>";
+                                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$j][1]."'></div><div class='text'><h3>".$prod[$j][2]."</h3><p class='price'>".$prod[$j][4]." ".$prod[$j][3]."</p><div class='information'><p>".$prod[$j][5]."</p></div>";
                                     
                                     if(isset($_COOKIE["login"])){
                                         $sql = "select is_admin from `user` where username = '". $_COOKIE["login"] . "'";
                                         $res = mysqli_query($con, $sql);
                                         $row = mysqli_fetch_row($res);
 
-                                        echo 
-                                        "<p>
-                                            <form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='post'>
-                                                <input type='hidden' name='pid' value='".$prod[$j][0]."'>
-                                                <button type='submit'>Add to cart</button>
-                                            </form>
-                                        </p>";
-                                        echo "<p><button onclick=\"location.href='/product.php?id=".$prod[$j][0]."';\">Learn more</button></p>";
+                                        // echo "<p><button onclick=\"location.href='/product.php?id=".$prod[$j][0]."';\">Learn more</button></p>";
 
                                         if($row[0] == 1){
                                             echo "<p><button onclick=\"location.href='/newprod.php?token=".$prod[$j][0]."';\">Edit</button></p>";
                                             echo "<p><button onclick=\"location.href='/deleteprod.php?token=".$prod[$j][0]."';\">Delete</button></p>";
+                                        }else{
+                                            echo 
+                                            "<p class='p1'>
+                                                <form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='post'>
+                                                    <input type='hidden' name='pid' value='".$prod[$j][0]."'>
+                                                    <button type='submit'>Add to cart</button>
+                                                </form>
+                                            </p>";
                                         }
                                     } else {
-                                        echo "<p><button onclick=\"location.href='/login.php';\">Learn more</button></p>";
+                                        echo "<p class='p1'><button onclick=\"location.href='/login.php';\">Buy now!</button></p>";
                                     }
                                     echo "</div></div>";
                                 }

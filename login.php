@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="/css/login.css">
     <title>Sign in</title>
 </head>
+<?php 
 
+$error = "";
+
+   if(isset($_COOKIE["Error"])) {
+    $currError = $_COOKIE['Error'];
+
+    if($currError != null) {
+        if($currError == "username") {
+            $error = "<div class='error-m'><p> Няма такъв username</p></div>";
+        }else {
+            $error = "<div class='error-m'><p> Грешна парола</p></div>";
+        }
+    }
+   }
+?>
 <body>
     <div class="hero">
         <div class="box">
@@ -30,6 +45,7 @@
                     <br>
                     <button type="button" class="submit-btn" onclick="back()">Back</button>
                 </form>
+                <?php echo $error ?>
             </div>
         </div>
     </div>

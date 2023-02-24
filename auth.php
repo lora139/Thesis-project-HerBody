@@ -35,7 +35,18 @@ function login($username, $password) {
         else setcookie("login", $username);
         /* redirect to main page */
         header("Location: index.php");
-    } else header("Location: login.php"); /* if no users are found redirect to login page again */
+    } else {
+        $usernameExist = "SELECT * FROM `user` WHERE username = '$username'";
+        $result = mysqli_query($con, $usernameExist);
+
+        if(mysqli_num_rows($result) == 0) {
+        setcookie("Error","username", time() + 1);
+        }
+        else {
+        setcookie("Error","password", time() + 1);
+        }
+         header("Location: login.php");
+     } /* if no users are found redirect to login page again */
 }
 
 /* automatically start login or register procedures based on form fields */

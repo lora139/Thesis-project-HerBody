@@ -14,18 +14,20 @@
             foreach ($products as $k => $v) {
                 echo "<div class='vcontent'><div class='vtriple-box'><div class='vbox'><div class='vimgBox'><img src=".$v['img']."></div><div class='vtext'><p>".$v['name']."<br>".($v['price'] * $v['qty'])." $".$v['currency']. "<br> Amount ".$v['qty']."</p></div></div></div></div>";
                 $total += $v["qty"] * $v["price"];
+                
             }
-            echo $total;
+            echo "<div class='num'>". $total."</div>";
         ?>
-
-        <a href="pay.php">
-            <button>Pay now!</button>
-        </a>
-        <br>
-        <br>
-        <a href="index.php">
-            <button>Back to the main page!</button>
-        </a>
-        
+        <div class="pos-btn">
+            <a href="pay.php">
+                <br>
+                <button class="vbtn">Pay now!</button>
+            </a>
+            <br>
+            <br>
+            <a href="index.php">
+                <button class="vbtn">Back to the main page!</button>
+            </a>
+        </div> 
     </body>
 </html>

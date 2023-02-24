@@ -12,26 +12,27 @@
     <?php
             require "global.php";
             global $con;
-            if($_SERVER["REQUEST_METHOD"]=="POST") {
+            if($_SERVER["REQUEST_METHOD"]=="POST") 
+            {
                 //take parameters from the POST method and in the double-quouts we type input name
-                $username = $_POST["username"];
+                $name = $_POST["username"];
                 $email = $_POST["email"];
                 $telephone = $_POST["telephone"];
                 $text1 = $_POST["text1"];
                 $text2 = $_POST["text2"];
                 /* SQL query to search for user with given username and password */
-                $sql = "insert into `order` (clientname, email, phonenumber, address1, address2) VALUES ('$username','$email', '$telephone', '$text1', '$text2');";
+                $sql = "insert into `order` (clientname, email, phone, addr1, addr2) VALUES ('$name','$email', '$telephone', '$text1', '$text2');";
                 $res = mysqli_query($con, $sql); /* execute query */
                 $last_id = mysqli_insert_id($con);
                 $uid = $_COOKIE["login"];
 
-                $cart = mysqli_query($con, "SELECT c.cartid, c.qty,p.id , p.`img`, p.`name`, p.`price`, p.`currency` FROM `cart` c JOIN `products` p  ON p.id = c.pid WHERE c.uid = '$uid';");
+                $cart = mysqli_query($con, "SELECT c.id,c.qty,p.id , p.`img`, p.`name`, p.`price`, p.`currency` FROM `cart_item` c JOIN `products` p  ON p.id = c.pid WHERE c.uid = '$uid';");
                 
                 foreach ($cart as $k => $v) {
-                    $sql2 = "insert into `cart_order` ( oid, uid, pid, qty) VALUES (".$last_id.",'".$uid."',".$v['id'].",".$v['qty'].")";
+                    $sql2 = "insert into `cart_order` (oid, uid, pid, qty) VALUES (".$last_id.",'".$uid."',".$v['id'].",".$v['qty'].")";
                     $res2 = mysqli_query($con,$sql2);
 
-                    $sql3 = "Delete from cart where `cartid`= ".$v['cartid']."and uid = ".$uid;
+                    $sql3 = "Delete from `cart_item` where uid = '".$uid."'";
                     $res3 = mysqli_query($con, $sql3);
                 }
 
@@ -67,27 +68,6 @@
                 </div>    
             </div>
         </div>
-
-        <form style="display: none" action="https://formsubmit.co/loloio.dim@gmail.com" method="post">
-                <div class="contactForm">
-                    <h3>Send Message</h3>
-                    <div class="inputBox">
-                        <input name="name" type="text" placeholder="Name">
-                    </div>
-
-                    <div class="inputBox">
-                        <input name="email" type="email" placeholder="Your Email">
-                    </div>
-
-                    <div class="inputBox">
-                        <textarea name="message" placeholder="Message"></textarea>
-                    </div>
-
-                    <div class="inputBox">
-                        <input type="submit" value="Send">
-                    </div>
-                </div>
-            </form>
 
         <script type="text/javascript" src="/js/login.js"></script>
     </body>

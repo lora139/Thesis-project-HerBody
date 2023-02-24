@@ -18,7 +18,7 @@ p{
     justify-content: center;
     align-items: center;
     background: url(/img/Fennel_2.jpg);
-   
+    /*paralax*/
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,7 +54,6 @@ p{
 .btn:hover{
     letter-spacing: 6px;
     background-color: #555;
-/*it's not working*/
 }
 header{
     position: fixed;  
@@ -98,6 +97,7 @@ header .navigation li a{
     color:#fff;
     font-weight: 300;
     text-decoration: none;
+    font-size: 17px;
 }
 header.sticky .navigation li a{
     color: #111;
@@ -135,8 +135,39 @@ header .navigation .dropdown {
   
   /* Show the dropdown menu on hover */
   header .navigation .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
+
+ header .navigation .search-container{
+    float: right;
+    border: none;
+  }
+  header .search{
+    font-size: 15px;
+    background: #fff;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  header .search_btn{
+    font-size: 15px;
+    margin-left: 4px;
+    color: #fff;
+    background: #555;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: 1px;
+    transition: 0.5s; /*animation*/
+  } 
+  header .search_btn:hover{
+    letter-spacing: 2px;
+    background: #bbca69;
+  }
 
 section{
     padding: 100px;
@@ -190,6 +221,7 @@ section{
     height: 100%;
 }
 .row .col50 .imgBox img{
+    border-radius: 5%;
     position: absolute;
     top: 0;
     left: 0;
@@ -206,7 +238,6 @@ section{
 }
 #product{
     width: 100%;
-    
     margin-bottom: 20%;
     /* margin-top: 100px; */
     /* background: url(/img/design.jpg); */
@@ -234,19 +265,22 @@ section{
     /* margin-top:0px; */
 }
 .product .content .box{
-    height: 680px; 
+    height: 610px; 
     width: 340px;
     margin: 20px;
     border: 15px solid #fff;
+    border-radius: 5%;
     background-color: #fff;
     box-shadow: 0 5px 35px rgba(0,0,0,0.08);
 }
-.product .content .box .imgBox{
+.product .content .imgBox{
+    border-radius: 5%;
     position: relative;
     width: 100%;
     height: 300px;
 }
-.product .content .box .imgBox img{
+.product .content .imgBox img{
+    border-radius: 5%;
     position: absolute;
     top: 0;
     left: 0;
@@ -254,40 +288,43 @@ section{
     height: 100%;
     object-fit: cover;
 }
-.product .content .box .text{
+.product .content .text{
     padding: 15px 0 5px;
     text-align: center;
 }
-.product .content .box .text .price{
+.product .content .text .price{
     margin-top: 5%;
     color: grey;
     font-size: 22px;      
 }
-.product .content .box .text .information {
+.product .content .text .information {
     height: 90px;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
-.product .content .box .text button {
+.product .content .text .p1{
+    margin-top: -5%;
+}
+.product .content .text button {
     margin-top: 1%;
     border: none;
     outline: 0;
     padding: 12px;
     color: white;
     background-color: #bbca69;
+    border-radius: 20px;
     text-align: center;
     cursor: pointer;
     width: 100%;
     font-size: 18px;
 }
-.product .content .box .text button:hover {
+.product .content .text button:hover {
     opacity: 0.7;
 }
-.product .content .box .text h3{
+.product .content .text h3{
     font-weight: 400;
     color: #111;
 }
-
 .contact{
     margin-top: -20%;
     background: url(/img/solid1.png);
