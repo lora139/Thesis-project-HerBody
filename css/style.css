@@ -17,7 +17,8 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(/img/Fennel_2.jpg);
+    background: url(/img/free3.jpg),#212121;
+    opacity: 0.7;
     /*paralax*/
     background-attachment: fixed;
     background-position: center;
@@ -27,20 +28,29 @@ p{
 .banner .content{ /*that is for all texts in class banner/ class content*/
     max-width: 900px;
     text-align: center;
+    opacity: 1;
 }
 .banner .content h2{/*that is just for h2 texts in class banner/ class content*/
     font-size: 5em;
-    color:#fff;
+    color:#000;
+    text-shadow: 4px 1px 6px #fff;
+
 }
 .banner .content p{/*that is just for p texts in class banner/ class content*/
     font-size: 1.4em;
-    color: #fff;
+    font-weight: 700;
+    /* text-shadow: 1px 1px; */
+    color: #000;
+    /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+    text-shadow: 4px 1px 6px #fff;
+
 }
 .btn{  /*that is for the product button */
     right:50%;
     font-size: 1em;
     color: #fff;
-    background: #bbca69;
+    background: #89b0a0;
+    opacity: 0.6;
     display: inline-block;
     padding: 10px 30px;
     margin-top: 20px;
@@ -52,6 +62,25 @@ p{
     border: none;
 }
 .btn:hover{
+    letter-spacing: 6px;
+    background-color: #555;
+}
+.btnp{  /*that is for the product button */
+    right:50%;
+    font-size: 1em;
+    color: #fff;
+    background: #876ba0;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s; /*animation*/
+    border-radius: 12px;
+    border: none;
+}
+.btnp:hover{
     letter-spacing: 6px;
     background-color: #555;
 }
@@ -68,21 +97,30 @@ header{
     transition: 0.5s;
 }
 header.sticky{ /*this makes the menus sticky (home, about ...)*/
-    background: #bbca69 ;
+    background: #212121 ;
     padding: 10px 100px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    opacity: 0.7;
 }
 header .logo{
-   color: #bbca69; 
+    background-image: linear-gradient(to right,#89b0ae,#89b0a0,#8995b0,#876ba0);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+   /* color: #bbca69;  */
    font-weight: 700;
    font-size: 2em;
    text-decoration: none;
 }
 header.sticky .logo{ /*change the logo when the menus change*/
-    color: #111;
-}
-header .logo span{
-    color: #ff0157;
+    background-image: linear-gradient(to right,#89b0ae,#89b0a0,#8995b0,#876ba0);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* color: #89b0ae; */
 }
 header .navigation{
     position: relative;
@@ -94,53 +132,19 @@ header .navigation li{
     margin-left: 30px;
 }
 header .navigation li a{
-    color:#fff;
+    color:#000;
     font-weight: 300;
     text-decoration: none;
     font-size: 17px;
 }
 header.sticky .navigation li a{
-    color: #111;
+    color: #fff;
 }
 header .navigation li a:hover{
     color: rgb(47, 68, 45);
 }
-
-  /* The container <div> - needed to position the dropdown content */
-header .navigation .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  header .navigation .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #bbca69;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  header .navigation .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  header .navigation .dropdown-content a:hover {opacity: 2;}
-  
-  /* Show the dropdown menu on hover */
-  header .navigation .dropdown:hover .dropdown-content {display: block;}
-
- header .navigation .search-container{
-    float: right;
-    border: none;
-  }
-  header .search{
+header .search
+{
     font-size: 15px;
     background: #fff;
     padding: 5px;
@@ -149,8 +153,9 @@ header .navigation .dropdown {
     border: none;
     outline: none;
     cursor: pointer;
-  }
-  header .search_btn{
+}
+header .search_btn
+{
     font-size: 15px;
     margin-left: 4px;
     color: #fff;
@@ -163,32 +168,34 @@ header .navigation .dropdown {
     display: inline-block;
     letter-spacing: 1px;
     transition: 0.5s; /*animation*/
-  } 
-  header .search_btn:hover{
+} 
+header .search_btn:hover
+{
     letter-spacing: 2px;
-    background: #bbca69;
-  }
+    background: #876ba0;
+}
 
-section{
+section
+{
     padding: 100px;
 }
-
-.about {
+.about 
+{
     /* height: 87vh; */
     width: 100%;
-    /* background: url(/img/design.jpg); */
 }
-.row{
+.row
+{
     position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.row .col50{
+.row .col50
+{
     top: 60px;
     position: relative;
     width: 44%;
-    
 }
 .row .col50 p{
     font-size: 1.2em;
@@ -199,10 +206,9 @@ section{
     color:#111;
     font-size: 2em;
     font-weight: 300;
-    
 }
 .titleText span{
-    color:#bbca69;
+    color:#89b0a0;
     font-weight: 700;
     font-size: 1.5em;
 }
@@ -311,7 +317,7 @@ section{
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #bbca69;
+    background-color: #89b0ae;
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
@@ -327,7 +333,7 @@ section{
 }
 .contact{
     margin-top: -20%;
-    background: url(/img/solid1.png);
+    background-color: #d0d6e5;
     background-size: cover;
 }
 .contact .titleText span{
@@ -367,7 +373,7 @@ section{
 .contactForm .inputBox input[type="submit"]{
     font-size: 1em;
     color: #fff;
-    background: #ff0157;
+    background: #876ba0;
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none;
@@ -384,20 +390,42 @@ section{
     border-top: 1px solid rgba(0,0,0,0.1);
     text-align: center;
 }
-.copyrightText p{
+.copyrightText h5{
+    font-weight: 300;
     color: #333;
 }
 .copyrightText a{
-    color: #bbca69;
+    color: #876ba0;
     font-weight: 700;
     text-decoration: none;
 }
 footer {
     text-align: center;
-    padding: 3px;
-    background-color: DarkSalmon;
+    background-color: #d0d6e5;
     color: white;
  }
+ fieldset{
+    margin: 1%;
+ }
+ .fot{
+    padding: 15px;
+ }
+ .fa {
+    padding: 6px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+ .fa-instagram {
+    color: black;
+  }
+
 
 /* media */
 
@@ -408,9 +436,9 @@ footer {
         padding: 10px 20px;
     }
     header .navigation{
-        display: none;
-       /* color: #111;*/
+    display: none;
        color:#fff;
+       background-color: #616161;
     }
     header .navigation.active{
         width: 100%;
@@ -422,8 +450,7 @@ footer {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: url(/img/Fennel_1.jpg);
-        opacity: 0.925;
+        opacity: 0.8;
     }
    header .navigation li {
        padding: 10px;
@@ -443,8 +470,8 @@ footer {
         position: relative;
         width: 40px;
         height: 40px;
-        background: url(/img/menu.png);
-        background-size: 30px;
+        background: url(/img/bars-solid.svg);
+        background-size: 40px;
         background-repeat: no-repeat;
         background-position: center;
         cursor: pointer;
@@ -461,14 +488,13 @@ footer {
         padding: 20px;
     }
     .banner .content h2{
-        font-size: 3em;
-        color: #fff;
+        font-size: 2.2em;
     }
     .row{
         flex-direction: column;
     }
     #about{
-        margin-bottom: 100px;
+        margin-bottom: 150px;
     }
     .row .col50{
         position: relative;
@@ -489,7 +515,7 @@ footer {
         height: 260px;
     }
     #product {
-        margin-bottom: 500px;
+        margin-bottom: 150px;
     }
     .title{
         text-align: center;
@@ -505,31 +531,4 @@ footer {
         margin-top: 20px;
         margin-bottom: 30px;
     }
-} 
-
-
-@media (max-width: 800px){
-    .banner .content h2{
-        font-size: 2.2em;
-        color: #fff;
-    }
-    #product {
-        margin-bottom: 500px;
-    }
-    #about{
-        margin-bottom: 250px;
-    }
 }
-/*
-@media (max-width: 1368px){
-    #product {
-        margin-bottom: 300px;
-    }
-    #about{
-        margin-bottom: 50px;
-    }
-    .row .col50 .imgBox{
-        height: 400px;
-        margin-top: 20px;
-    }
-} */

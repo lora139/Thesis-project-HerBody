@@ -1,5 +1,5 @@
 body{
-    background: url(/img/Fennel_2.jpg);
+    background: url(/img/f.jpg);
 }
 th, td{
     background: #fff;
@@ -27,7 +27,7 @@ table{
     right:50%;
     font-size: 1em;
     color: #fff;
-    background: #bbca69;
+    background: #dac6eb;
     display: inline-block;
     padding: 10px 30px;
     margin-top: 20px;
@@ -40,5 +40,5 @@ table{
 }
 .btn:hover{
     letter-spacing: 6px;
-    background-color: #bbca69;
+    background-color: #876ba0;
 }

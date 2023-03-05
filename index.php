@@ -8,16 +8,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HERBODY</title> <!-- Името на страница -->
         <link rel="stylesheet" href="css/style.css"> <!-- добавяне на css file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--използва се този линк за иконата на Инстаграм-->
+        <script type="text/javascript" src="/js/app.js"></script> <!--JavaScript file-->
         <script>
-            if (window.history.replaceState) {
+            if (window.history.replaceState)
+            {
                 window.history.replaceState(null, null, window.location.href);
             }
         </script>
     </head>
+
         <?php
             require "cart.php";
             
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") // ако има подобен пробукт дава стойност
+            {
                 $pid = $_POST["pid"];
                 add_to_cart($pid, 1, true);
             }
@@ -25,7 +30,7 @@
         ?>
     <body>
         <header>
-            <a href="#" class="logo">Herbody<span>.</span></a> <!-- Логото -->
+            <a href="#" class="logo">HerBody</a> <!-- Логото -->
             <div class="menuToggle" onclick="toggleMenu();"></div><!--тук ли трябва да е div-а-->
             <ul class="navigation"> <!--Полето с навигацията и менютата-->
                 <li><a href="#banner" onclick="toggleMenu();">Home</a></li> <!--Home полето-->
@@ -37,54 +42,43 @@
                         require "global.php";
                         global $con;
 
-                        /* if we are logged in instead of displaying a link to the login page, display a dropdown menu for the client */
-                        if (isset($_COOKIE["login"])) {
-                                // dropdown menu
-                                /*<div class="dropdown">
-                                <button class="dropbtn">Profile</button>
-                                <div class="dropdown-content">
-                                <a href="profile.php" onclick="toggleMenu();">Profile</a>
-                                <a href="logout.php" onclick="toggleMenu();">Logout</a>
-                                </div>
-                                </div>
-                                */
-                            $sql = "select is_admin from `user` where username = '". $_COOKIE["login"] . "'";
+                        /* if we are logged in instead of displaying a link to the login page, display the page for the client */
+                        if (isset($_COOKIE["login"]))
+                        {
+                            $sql = "select is_admin from `user` where username = '". $_COOKIE["login"] . "'"; // select-ва потребителя и му задава куки
                             $res = mysqli_query($con, $sql);
                             $row = mysqli_fetch_row($res);
 
-                            if($row[0] == 1){
+                            if($row[0] == 1) //ако потребителят е администратор
+                            { 
                                 echo "<li><a href=\"/newprod.php\">Add product</a></li>";
-                                echo "<div class=\"dropdown\"><li><a class=\"dropbtn\">Profile</a><div class=\"dropdown-content\"><a href=\"profile.php\" onclick=\"toggleMenu();\">Client accounts</a><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></div></li></div>";
-                            }else{
-                                echo "<div class=\"dropdown\"><li><a href=\"viewcart.php\" onclick=\"toggleMenu();\" class=\"dropbtn\">View cart</a></li></div>";
-                                echo "<div class=\"dropdown\"><li><a href=\"logout.php\" onclick=\"toggleMenu();\" class=\"dropbtn\">Logout</a></li></div></ul>";
-                                echo"<div class='search-container'><form method='post' action='search.php'><input  class='search' type='text' name='search' placeholder='Search products...'><input class='search_btn' type='submit' value='Search'></form></div>";
+                                echo "<li><a href=\"profile.php\" onclick=\"toggleMenu();\">Client accounts</a></li>";
+                                echo "<li><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></li>";
                             }
-                        } else {
-                            echo "<li><a href=\"login.php\" onclick=\"toggleMenu();\">Log in</a></li></ul>";
-                            echo"<div class='search-container'><form method='post' action='search.php'><input  class='search' type='text' name='search' placeholder='  Search products...'><input class='search_btn' type='submit' value='Search'></form></div>";
+                            else //ако потребителят е клиент
+                            { 
+                                echo "<li><a href=\"viewcart.php\" onclick=\"toggleMenu();\">View cart</a></li>";
+                                echo "<li><a href=\"logout.php\" onclick=\"toggleMenu();\">Logout</a></li>";
+                                echo"<li><form method='post' action='search.php'><input  class='search' type='text' name='search' placeholder='Search products...'><input class='search_btn' type='submit' value='Search'></form></div></li></ul>";
+                            }
+                        }
+                        else //ако потребителят е просто посетител в сайта
+                        {
+                            echo "<li><a href=\"login.php\" onclick=\"toggleMenu();\">Log in</a></li>";
+                            echo"<li><form method='post' action='search.php'><input  class='search' type='text' name='search' placeholder='  Search products...'><input class='search_btn' type='submit' value='Search'></form></li></ul>";
                         }
                     ?>
-            
-                   
-                <!-- <div class="search-container">
-                <form method="post" action="search.php">
-                    <input  class="search" type="text" name="search" placeholder="  Search products...">
-                    <input class="search_btn" type="submit" value="Search">
-                </form>
-            </div> -->
-            
         </header>
 
-        <section class="banner" id="banner">
+        <section class="banner" id="banner"> <!--първата секция от страницата - показва главното място, когато се влезе в нея-->
             <div class="content">
                 <h2>Always choose good</h2>
                 <p>Handmade soaps with products from nature</p>
-                <a href="#product" class="btn">Products</a>
+                <a href="#product" class="btnp">Products</a>
             </div>
         </section>
 
-        <section class="about" id="about">
+        <section class="about" id="about"> <!--секцията показваща повече информация за фирмата-->
             <div class="row">
                 <div class="col50">
                     <h2 class="titleText"><span>A</span>bout Us</h2>
@@ -114,15 +108,14 @@
                 <div class="col50">
                     <div class="box">
                         <div class="imgBox">
-                            <img src="img/Honey_1.JPG">
+                            <img src="img/free1.jpg"> <!--снимката в дясно-->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="product" id="product">
-
+        <section class="product" id="product"> <!--секцията с предлаганите продукти-->
             <div class="title">
                 <h2 class="titleText"><span>P</span>roducts</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
@@ -132,8 +125,10 @@
                 <div class="content">
                     <?php
                         require "global.php";
+
                         /* get products */
-                        function get_products() {
+                        function get_products()
+                        {
                             global $con;
                             /* create an array*/
                             $prod = [];
@@ -143,34 +138,42 @@
                             /* return the result */
                             $res = mysqli_query($con, $sql);
                             /* if it is successful, it puts all the product into an array*/
-                            if ($res) {
+                            if ($res)
+                            {
                                 $n = mysqli_num_rows($res);
-                                while ($row = mysqli_fetch_row($res)) {
+                                while ($row = mysqli_fetch_row($res))
+                                {
                                     $prod[] = $row;
                                 }
                                 /* free result from memory */
                                 mysqli_free_result($res);
-                            } else return;  //returns nothing
+                            }
+                            else return;  //returns nothing
                                 
                             $pages = $n / 3;
                             // go through all pages
-                            for ($i = 0; $i < $pages; ++$i) {
+                            for ($i = 0; $i < $pages; ++$i)
+                            {
                                 echo "<div class='triple-box'>";
-                                for ($j = 3 * $i; $j < 3 * ($i + 1); ++$j) {
+
+                                for ($j = 3 * $i; $j < 3 * ($i + 1); ++$j)//разделя кутиите с продукти по 3 на ред
+                                {
                                     if ($j > $n - 1) break;
                                     echo "<div class='box'><div class='imgBox'><img src='".$prod[$j][1]."'></div><div class='text'><h3>".$prod[$j][2]."</h3><p class='price'>".$prod[$j][4]." ".$prod[$j][3]."</p><div class='information'><p>".$prod[$j][5]."</p></div>";
                                     
-                                    if(isset($_COOKIE["login"])){
+                                    if(isset($_COOKIE["login"]))
+                                    {
                                         $sql = "select is_admin from `user` where username = '". $_COOKIE["login"] . "'";
                                         $res = mysqli_query($con, $sql);
                                         $row = mysqli_fetch_row($res);
 
-                                        // echo "<p><button onclick=\"location.href='/product.php?id=".$prod[$j][0]."';\">Learn more</button></p>";
-
-                                        if($row[0] == 1){
+                                        if($row[0] == 1)
+                                        {
                                             echo "<p><button onclick=\"location.href='/newprod.php?token=".$prod[$j][0]."';\">Edit</button></p>";
                                             echo "<p><button onclick=\"location.href='/deleteprod.php?token=".$prod[$j][0]."';\">Delete</button></p>";
-                                        }else{
+                                        }
+                                        else
+                                        {
                                             echo 
                                             "<p class='p1'>
                                                 <form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='post'>
@@ -179,7 +182,9 @@
                                                 </form>
                                             </p>";
                                         }
-                                    } else {
+                                    }
+                                    else 
+                                    {
                                         echo "<p class='p1'><button onclick=\"location.href='/login.php';\">Buy now!</button></p>";
                                     }
                                     echo "</div></div>";
@@ -187,24 +192,22 @@
                                 echo "</div>";
                             }    
                         }
-                        get_products();
-                    ?>
+                        get_products();?>
                 </div>
-
+            
                 <center>
                     <button class="btn" onclick="slider_shift(-1)">&#10094;</button>
                     <button class="btn" onclick="slider_shift(1)">&#10095;</button>
                 </center>
             </div>
-
         </section>
 
-        <section class="contact" id="contact">
+        <section class="contact" id="contact"> <!--секцията позволяваща потребителите да се свързват с продавача-->
             <div class="title">
                 <h2 class="titleText"><span>C</span>ontact Us</h2>
             </div>
 
-            <form action="https://formsubmit.co/loloio.dim@gmail.com" method="post">
+            <form action="https://formsubmit.co/loloio.dim@gmail.com" method="post"> <!--използва се този сайт за изпращане на съобщенията от клиентите към търговеца-->
                 <div class="contactForm">
                     <h3>Send Message</h3>
                     <div class="inputBox">
@@ -228,16 +231,18 @@
 
 
         <footer>
-            <p>Author: Lora and Marin<br>
-            <a>loloio.dim@gmail.com and m.l.bizov@gmail.com</a></p>
+                <div class= "fot">
+                    <fieldset>
+                        <br>
+                        <p>FOLLOW US OUT THERE</p>
+                        <a href="https://www.instagram.com/photoshots1309" target="_blank" class="fa fa-instagram fa-2x"></a> <!--иконата на Инстаграм-->
+                    </fieldset>
+                </div>
+            
         </footer>
 
         <div class="copyrightText">
-            <p>Copyright © 2022 <a href="#">Herbody</a>. All Right Reserved</p>
+            <h5>Copyright © 2022 <a href="#">HerBody</a>. All Right Reserved</h5>
         </div>
-
-        <script type="text/javascript" src="/js/app.js"></script>
-        
     </body>
-
 </html>
