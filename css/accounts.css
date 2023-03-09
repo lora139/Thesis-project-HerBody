@@ -1,7 +1,9 @@
-body{
+body
+{
     background: url(/img/f.jpg);
 }
-th, td{
+th, td
+{
     background: #fff;
     border: 1px solid black;
     border-radius: 10px;
@@ -9,21 +11,25 @@ th, td{
     height: 5vh;
     box-shadow: 0 5px 20px #fff;
 }
-td{
+td
+{
     text-align: center;
     height: 10vh;
 }
-table{
+table
+{
     border-radius: 10px;
     margin-top: 10%;  
     margin-left: 10%;
     margin-right: 10%;
 }
-.detail{
+.detail
+{
     margin-top: 5%;
     margin-bottom:5%;
 }
-.btn{  /*that is for the product button */
+.btn
+{  /*that is for the product button */
     right:50%;
     font-size: 1em;
     color: #fff;
@@ -38,7 +44,8 @@ table{
     border-radius: 12px;
     border: none;
 }
-.btn:hover{
+.btn:hover
+{
     letter-spacing: 6px;
     background-color: #876ba0;
 }

@@ -1,9 +1,11 @@
-*{
+*
+{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
-.hero{
+.hero
+{
     height: 100%;
     width: 100%;
     background: url(/img/free4.jpg);
@@ -12,7 +14,8 @@
     background-size: cover;
     position: absolute;
 }
-.form-box{
+.form-box
+{
     width: 380px;
     height: 520px;
     position: relative;
@@ -21,7 +24,8 @@
     padding: 5px;
     overflow: hidden;
 }
-.button-box{
+.button-box
+{
     width: 220px;
     height: 40px;
     margin: 35px auto;
@@ -29,13 +33,15 @@
     box-shadow: 0 0 20px 9px #876ba0;
     border-radius: 50px;
 }
-.toggle-btn{
+.toggle-btn
+{
    text-align: center;
    padding: 10px 0;
    position: absolute;
    left: 25%;
 }
-#btn{
+#btn
+{
     top: 0;
     left: 0;
     position: absolute;
@@ -45,21 +51,24 @@
     border-radius: 30px;
     transition: 0.5s;
 }
-.input-group{
+.input-group
+{
     top: 180px;
     margin: 12%;
     /* position: absolute; */
     width: 280px;
     transition: 0.5s;
 }
-.input-group-reg{
+.input-group-reg
+{
     margin: 13%;
     width: 280px;
     top: 280px;
     position:static;
     transition: 0.5s;
 }
-.input-field{
+.input-field
+{
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -70,10 +79,12 @@
     outline: none;
     background: transparent;
 }
-.input-group .type{
+.input-group .type
+{
     margin-bottom: 10%;
 }
-.submit-btn{
+.submit-btn
+{
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
@@ -84,21 +95,26 @@
     outline: none;
     border-radius: 30px;
 }
-.submit-btn:hover{
+.submit-btn:hover
+{
     background-color: rgb(185, 179, 179);
 }
-.check-box{
+.check-box
+{
     margin: 30px 10px 30px 0; 
 }
-.check-box span{
+.check-box span
+{
     color: #777;
     font-size: 12px;
     bottom: 68px;
     position: absolute;
 }
 
-@media (max-width: 991px){
-    .hero{
+@media (max-width: 991px)
+{
+    .hero
+    {
         height: 100%;
         width: 100%;
         background: url(/img/free4.jpg);
@@ -107,7 +123,8 @@
         position:fixed;
         display: block;
     }
-    .form-box{
+    .form-box
+    {
         margin:auto;
     }
 }

@@ -1,3 +1,4 @@
+// наяина, по който се мести страницата от горе на долу
 window.addEventListener('scroll',function(){
     const header = document.querySelector('header');
     header.classList.toggle("sticky",window.scrollY > 0);
@@ -10,8 +11,8 @@ function toggleMenu(){
     navigation.classList.toggle('active');
 }
 
-/* black magic slider thing :> */
 
+// начина, по който се местят продуктите в страницата от ляво на дясно
 var slider_offset = 1;
 slider_refresh(slider_offset);
 
