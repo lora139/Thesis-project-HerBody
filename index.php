@@ -83,25 +83,23 @@
                 <div class="col50">
                     <h2 class="titleText"><span>A</span>bout Us</h2>
                     <p>
-                    <br> Lorem Ipsum is simply dummy
-                    text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a
-                    type specimen book.<br><br>Lorem Ipsum is simply dummy
-                    text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a
-                    type specimen book.Lorem Ipsum is simply dummy
-                    text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                    inter took a galley of type and scrambled it to make a
-                    type specimen book.Lorem Ipsum is simply dummy
-                    text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    <br>
+                    The company was founded in 2020.
+                    <br><br> 
+                    The idea of our enterprise is to give people the opportunity 
+                    to be as close as possible to natural fragrances and healing methods, 
+                    without the use of chemical elements and additives to cosmetic products.
+                    <br><br>
+                    All the ingredients we use in our products are tailored to different 
+                    needs of a person. 
+                    <br><br> 
+                    In each product, doTERRA essential oils are added, which, in addition 
+                    to their soothing and healing effects, have strong aromas acquired from the essential oils of plants. 
+                    <br><br>
+                    Our aim is to show people that essential oils can help people not 
+                    only in the form of extracts, but also incorporated into cosmetic products.
+                    We are distinguished by our dedication to our cause and our personal attention to each individual.
+
                     </p>
                 </div>
 
@@ -118,7 +116,7 @@
         <section class="product" id="product"> <!--секцията с предлаганите продукти-->
             <div class="title">
                 <h2 class="titleText"><span>P</span>roducts</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                <p>Here you can see what we are offering:</p>
             </div>
 
             <div class="slider">
@@ -159,7 +157,7 @@
                                 for ($j = 3 * $i; $j < 3 * ($i + 1); ++$j)//разделя кутиите с продукти по 3 на ред
                                 {
                                     if ($j > $n - 1) break;
-                                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$j][1]."'></div><div class='text'><h3>".$prod[$j][2]."</h3><p class='price'>".$prod[$j][4]." ".$prod[$j][3]."</p><div class='information'><p>".$prod[$j][5]."</p></div>";
+                                    echo "<div class='box'><div class='imgBox'><img src='".$prod[$j][1]."'></div><div class='text'><h3>".$prod[$j][2]."</h3><p class='price'>".$prod[$j][3]." ".$prod[$j][4]."</p><div class='information'><p>".$prod[$j][5]."</p></div>";
                                     
                                     if(isset($_COOKIE["login"]))
                                     {

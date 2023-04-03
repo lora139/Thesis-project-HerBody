@@ -52,7 +52,8 @@
                 }
                 else
                 { // if there is an id we update
-                    $sql = "update `products` set `img`='$img', `name`='$name', `price`='$price', `currency`='$currency', `desc`='$desc' where `id`='$update';";
+                    $sql = "update `products` set `img`='$img', `name`='$name', `price`='$price', `currency`='$currency', `desc`='$desc'
+                    where `id`='$update';";
                     $res = mysqli_query($con, $sql);
                     header('Location: newprod.php?token='.$update); // казваме, че след token-на ще следва номера id
                 }

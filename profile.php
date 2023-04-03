@@ -16,7 +16,8 @@
                     function profile() {
                         global $con; // използва глобалната променлиза $con
 
-                        $sql = "SELECT o.orderid, c.date, o.clientname, o.email, o.phone, o.addr1, GROUP_CONCAT(p.`name`,':',c.qty SEPARATOR ', ') AS products FROM `order` o 
+                        $sql = "SELECT o.orderid, c.date, o.clientname, o.email, o.phone, o.addr1, GROUP_CONCAT(p.`name`,':',c.qty SEPARATOR ', ') 
+                        AS products FROM `order` o 
                         JOIN cart_order c ON c.oid = o.orderid
                         JOIN products p ON c.pid = p.id
                         group by o.orderid"; //заявка обединяваща данните от две таблици products and order
