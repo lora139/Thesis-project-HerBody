@@ -9,7 +9,7 @@
         <title>HERBODY</title> <!-- Името на страница -->
         <link rel="stylesheet" href="css/style.css"> <!-- добавяне на css file -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--използва се този линк за иконата на Инстаграм-->
-        <script type="text/javascript" src="/js/app.js"></script> <!--JavaScript file-->
+        <script defer type="text/javascript" src="/js/app.js"></script> <!--JavaScript file-->
         <script>
             if (window.history.replaceState)
             {
